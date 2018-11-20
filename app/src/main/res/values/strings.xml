@@ -1,0 +1,140 @@
+<resources>
+
+    <string name="app_name">Pheasycs</string>
+    <string name="tab_text_1">HOME</string>
+    <string name="tab_text_2">TOPICS</string>
+    <string name="tab_text_3">FORMULAS</string>
+    <string name="home_text1">Welcome to Pheasycs!</string>
+    <string name="home_text2">Choose the topic you want help with in the topics bar.\n
+        Or slide to the left.</string>
+    <string name="formulas_text1">When you choose a topic it will show up here.</string>
+    <string name="unitcon_title">Unit Conversions</string>
+    <string name="kinematics_title">Kinematics</string>
+    <string name="kin_vel">Velocity:</string>
+    <string name="kin_invel">Initial Velocity:</string>
+    <string name="kin_acel">Aceleration:</string>
+    <string name="kin_time">Time:</string>
+    <string name="kin_dis">Distance:</string>
+    <string name="sumvect_title">Sum Of Vectors</string>
+    <string name="magnitude">Magnitude</string>
+    <string name="angle">Angle</string>
+    <string name="vector1">Vector A</string>
+    <string name="vector2">Vector B</string>
+    <string name="vector3">Vector C</string>
+    <string name="result">Result</string>
+    <string name="calculate">CALCULATE</string>
+
+
+
+
+    <string-array name="units_topic_array">
+        <item>Area</item>
+        <item>Digital Storage</item>
+        <item>Frequency</item>
+        <item>Length</item>
+        <item>Plane Angle</item>
+        <item>Temperature</item>
+        <item>Time</item>
+
+    </string-array>
+
+    <string-array name="area_array">
+        <item>Square kilometer</item>
+        <item>Square meter</item>
+        <item>Square mile</item>
+        <item>Square yard</item>
+        <item>Square foot</item>
+        <item>Square inch</item>
+    </string-array>
+
+    <string-array name="dstorage_array">
+        <item>Bit</item>
+        <item>Kilobit</item>
+        <item>Megabit</item>
+        <item>Gigabit</item>
+        <item>Terabit</item>
+        <item>Petabit</item>
+        <item>Byte</item>
+        <item>Kilobyte</item>
+        <item>Megabyte</item>
+        <item>Gigabyte</item>
+        <item>Terabyte</item>
+        <item>Petabyte</item>
+    </string-array>
+
+    <string-array name="frequency_array">
+        <item>Hertz</item>
+        <item>Kilohertz</item>
+        <item>Megahertz</item>
+        <item>Gigahertz</item>
+    </string-array>
+
+    <string-array name="length_array">
+        <item>Kilometer</item>
+        <item>Meter</item>
+        <item>Centimeter</item>
+        <item>Milimeter</item>
+        <item>Micrometer</item>
+        <item>Nanometer</item>
+        <item>Mile</item>
+        <item>Yard</item>
+        <item>Foot</item>
+        <item>Inch</item>
+    </string-array>
+
+    <string-array name="angle_array">
+        <item>Degree</item>
+        <item>Gradian</item>
+        <item>Radian</item>
+    </string-array>
+
+    <string-array name="temperature_array">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+        <item>Kelvin</item>
+    </string-array>
+
+    <string-array name="time_array">
+        <item>Nanosecond</item>
+        <item>Mircosecond</item>
+        <item>Milisecond</item>
+        <item>Second</item>
+        <item>Minute</item>
+        <item>Hour</item>
+        <item>Day</item>
+        <item>Week</item>
+        <item>Month</item>
+        <item>Year</item>
+        <item>Decade</item>
+        <item>Century</item>
+    </string-array>
+
+    <string-array name="kin1_array">
+        <item>Velocity</item>
+        <item>Initial Velocity</item>
+        <item>Aceleration</item>
+        <item>Time</item>
+    </string-array>
+
+    <string-array name="kin2_array">
+        <item>Distance</item>
+        <item>Velocity</item>
+        <item>Initial Velocity</item>
+        <item>Time</item>
+    </string-array>
+
+    <string-array name="kin3_array">
+        <item>Distance</item>
+        <item>Initial Velocity</item>
+        <item>Time</item>
+        <item>Aceleration</item>
+    </string-array>
+
+    <string-array name="kin4_array">
+        <item>Velocity</item>
+        <item>Initial Velocity</item>
+        <item>Aceleration</item>
+        <item>Distance</item>
+    </string-array>
+
+</resources>
