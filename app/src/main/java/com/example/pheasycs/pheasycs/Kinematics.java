@@ -4,6 +4,7 @@ public class Kinematics {
 
     public double selectFormula(int formula, int variable, double first, double second, double third, double fourth) {
 
+        // Selecting the formula the user selected.
         switch(formula){
             case 3:
                 return kin1(variable, first, second, third, fourth);
@@ -19,6 +20,8 @@ public class Kinematics {
     }
 
     private double kin1(int variable, double first, double second, double third, double fourth){
+
+        // Selecting the variable the user selected and calculating the value.
         switch(variable){
             case 0:
                 return second + third * fourth;
@@ -34,6 +37,8 @@ public class Kinematics {
     }
 
     private double kin2(int variable, double first, double second, double third, double fourth){
+
+        // Selecting the variable the user selected and calculating the value.
         switch(variable){
             case 0:
                 return (second + third) / 2 * fourth;
@@ -49,6 +54,8 @@ public class Kinematics {
     }
 
     private double kin3(int variable, double first, double second, double third, double fourth){
+
+        // Selecting the variable the user selected and calculating the value.
         switch(variable){
             case 0:
                 return second * third  + (fourth * third) / 2;
@@ -64,6 +71,8 @@ public class Kinematics {
     }
 
     private double kin4(int variable, double first, double second, double third, double fourth){
+
+        // Selecting the variable the user selected and calculating the value.
         switch(variable){
             case 0:
                 return Math.sqrt(second*second + 2*third*fourth);
@@ -77,5 +86,4 @@ public class Kinematics {
                 return 0;
         }
     }
-
 }

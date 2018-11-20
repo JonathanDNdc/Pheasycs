@@ -12,23 +12,28 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-
+// This is the class for the topic fragment.
 public class TopicsFragment extends Fragment {
 
+    // Enum variable for the topics.
     enum topicsEnum  {UnitConversions, Kinematics, SumOfVectors};
 
 
+    // This creates the view when the topic fragment is selected.
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // This sets the topics_fragment.
         View view = inflater.inflate(R.layout.topics_fragment, container, false);
 
+        // The elements of the list.
         final String[] topicItems = {"Unit Conversions", "Kinematics", "Sum of Vectors"};
 
-
+        // Creates the listView.
         final ListView listView = view.findViewById(R.id.lvTopics);
         listView.setClickable(true);
 
+        // When the item on the list is selected we change the global variable and restart the app.
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -52,8 +57,8 @@ public class TopicsFragment extends Fragment {
             }
         });
 
+        // Array Adapter for the listView
         ArrayAdapter<String> ListViewAdapter = new ArrayAdapter<String>(getContext(), R.layout.topics_items, topicItems);
-
         listView.setAdapter(ListViewAdapter);
 
         return view;

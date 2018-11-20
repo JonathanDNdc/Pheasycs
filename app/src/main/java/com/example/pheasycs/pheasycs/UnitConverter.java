@@ -4,6 +4,7 @@ public class UnitConverter {
 
     public double unitConverter(double num, int topic, int first, int second) {
 
+        // Selecting what the user wants to convert.
         switch (topic) {
             case 0:
                 return Area(num, first, second);
@@ -23,6 +24,10 @@ public class UnitConverter {
                 return 0.0;
         }
     }
+
+    // Each conversion is made by a relation between the numbers.
+    // The number received is divided by its unit and multiplied by the unit they want to convert.
+
 
     private double Area(double num, int first, int second) {
 

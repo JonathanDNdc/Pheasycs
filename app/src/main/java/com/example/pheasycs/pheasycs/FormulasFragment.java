@@ -20,19 +20,22 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-
+// This is the fragment for the formulas tab.
 public class FormulasFragment extends Fragment {
 
+    // We declared the editText and the bool variable for the onChange.
     EditText firstEditText;
     EditText secondEditText;
     boolean canListen = true;
 
+    // This is where the formulas view is created.
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view;
 
+        // The layout will depend on the global variable.
         switch (MyProperties.getInstance().fragmentValue) {
             case 0:
                 view = inflater.inflate(R.layout.formulas_unit_conversions_fragment, container, false);
@@ -69,10 +72,12 @@ public class FormulasFragment extends Fragment {
         return view;
     }
 
+    // Declaration of variables.
     int typeposition = 0;
     int firstposition = 0;
     int secondposition = 0;
 
+    // Creates the spinners of the Unit conversion.
     public void onCreateUnitCon(View view) {
         final Spinner typeSpinner = view.findViewById(R.id.unitTypeSpinner);
         final Spinner firstSpinner = view.findViewById(R.id.unitFirstSpinner);
@@ -100,6 +105,7 @@ public class FormulasFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 typeposition = position;
+                // Depending of the position the items of the spinner will change.
                 switch (position) {
                     case 0:
                         firstSpinner.setAdapter(adapter0);
@@ -142,6 +148,7 @@ public class FormulasFragment extends Fragment {
         });
     }
 
+    // This is called when the item of the spinners is changed.
     AdapterView.OnItemSelectedListener onItemSelectedListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -160,6 +167,7 @@ public class FormulasFragment extends Fragment {
         }
     };
 
+
     public void UnitSelected(View view) {
 
         onCreateUnitCon(view);
@@ -168,6 +176,8 @@ public class FormulasFragment extends Fragment {
 
         firstEditText.addTextChangedListener(new TextWatcher() {
 
+            // When one of the EditText is changed, we show the conversion in the other.
+            // We use the boolean so they don't change each other infinitely.
             public void afterTextChanged(Editable s) {
                 if (canListen) {
                     canListen = false;
@@ -188,6 +198,8 @@ public class FormulasFragment extends Fragment {
 
         secondEditText.addTextChangedListener(new TextWatcher() {
 
+            // When one of the EditText is changed, we show the conversion in the other.
+            // We use the boolean so they don't change each other infinitely.
             public void afterTextChanged(Editable s) {
 
                 if (canListen) {
@@ -207,6 +219,7 @@ public class FormulasFragment extends Fragment {
 
     }
 
+    // Change the value of the other EditText according to the value of the conversion.
     public void ChangeFirst() {
         UnitConverter unitConverter = new UnitConverter();
         try {
@@ -227,6 +240,7 @@ public class FormulasFragment extends Fragment {
         }
     }
 
+    // Images on the kinematic fragment.
     public void KinematicSelected(View v){
         ImageView kin1 = v.findViewById(R.id.kin1);
         ImageView kin2 = v.findViewById(R.id.kin2);
@@ -237,6 +251,8 @@ public class FormulasFragment extends Fragment {
         kin3.setOnClickListener(imageClickListener);
         kin4.setOnClickListener(imageClickListener);
     }
+
+    // For each formula we make an adapter for the spinner.
 
     public void Kin1(View v){
         ArrayAdapter<CharSequence> adapter7 = ArrayAdapter.createFromResource(getContext(), R.array.kin1_array, R.layout.spinner_custom_item);
@@ -282,6 +298,7 @@ public class FormulasFragment extends Fragment {
         kin1Button(v);
     }
 
+    // When an image is clicked, fragmentValue changes so the layout can change.
     private View.OnClickListener imageClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -299,11 +316,12 @@ public class FormulasFragment extends Fragment {
                     MyProperties.getInstance().fragmentValue = 6;
                     break;
             }
+            // The app is restarted.
             ((MainActivity)getActivity()).Restart();
         }
     };
 
-
+    // We get the position of the variable the user wants to get.
     AdapterView.OnItemSelectedListener kin1ItemSelected = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -318,22 +336,27 @@ public class FormulasFragment extends Fragment {
 
     double kinValue;
 
+    // Function for the button functionality.
     public void kin1Button(View v){
+        // Declaring the EditText's
         final EditText editvel = v.findViewById(R.id.editVel1);
         final EditText editinvel = v.findViewById(R.id.editInvel1);
         final EditText editacel = v.findViewById(R.id.editAcel1);
         final EditText edittime = v.findViewById(R.id.editTime1);
 
         Button kin1btn = v.findViewById(R.id.kin1btn);
+        // When the button is pressed:
         kin1btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                // Declaring each values
                 double vel;
                 double invel;
                 double acel;
                 double time;
 
+                // If the user didn't entered a value, it will be taken as a 0.
                 try{
                     vel = Double.parseDouble(editvel.getText().toString());
                 } catch(Exception e){
@@ -358,10 +381,11 @@ public class FormulasFragment extends Fragment {
                     time = 0;
                 }
 
-
+                // We get the result from the Kinematics class.
                 Kinematics kinematics = new Kinematics();
                 kinValue = kinematics.selectFormula(MyProperties.getInstance().fragmentValue, typeposition, vel, invel, acel, time);
 
+                // We change the value the user wants to the result.
                 switch(typeposition){
                     case 0:
                         editvel.setText(String.valueOf(kinValue));
@@ -380,8 +404,9 @@ public class FormulasFragment extends Fragment {
         });
     }
 
-
+    // Function for the sum of vectors button.
     public void sumvectbtn(View v){
+        // Declaring the EditText's
         final EditText etmag1 = v.findViewById(R.id.mag1);
         final EditText etmag2 = v.findViewById(R.id.mag2);
         final EditText etmag3 = v.findViewById(R.id.mag3);
@@ -394,10 +419,12 @@ public class FormulasFragment extends Fragment {
         final TextView ang = v.findViewById(R.id.angres);
 
         Button sofbtn = v.findViewById(R.id.button);
+        // When the button is pressed:
         sofbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                // Declaring the values.
                 double mag1;
                 double mag2;
                 double mag3;
@@ -406,6 +433,7 @@ public class FormulasFragment extends Fragment {
                 double ang2;
                 double ang3;
 
+                // If the user didn't enter a value, it will be taken as a 0.
                 try{
                     mag1 = Double.parseDouble(etmag1.getText().toString());
                 } catch(Exception e){
@@ -443,6 +471,7 @@ public class FormulasFragment extends Fragment {
                 }
 
 
+                // The magnitude and angle will be received from the SumOfVectors class.
                 SumOfVectors sumOfVectors = new SumOfVectors();
                 double resmag = sumOfVectors.getOne(true, mag1, ang1, mag2, ang2, mag3, ang3);
                 double resang = sumOfVectors.getOne(false, mag1, ang1, mag2, ang2, mag3, ang3);

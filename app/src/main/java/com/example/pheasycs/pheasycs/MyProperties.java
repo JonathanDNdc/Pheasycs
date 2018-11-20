@@ -1,5 +1,8 @@
 package com.example.pheasycs.pheasycs;
 
+// This class is for the global variable that we will use to
+// set the layouts of the formulas fragment.
+
 public class MyProperties {
     private static MyProperties mInstance= null;
 
